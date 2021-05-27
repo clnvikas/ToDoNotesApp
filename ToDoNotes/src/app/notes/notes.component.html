@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row" style="margin:5px; padding: 10px; display: flex; flex-direction:row;">
+        <div class="col-md-5" *ngFor="let item of cardData;">
+            <mat-card  [ngStyle]="{'background-color': item.color}">
+                <button mat-mini-fab color="warn" style="position: absolute; right: 20px;"
+                    (click)="deleteNote(item.id)">
+                    <mat-icon style="font-size:30px; position:fixed; top:5px; left:5px;">delete</mat-icon>
+                </button>
+                <button mat-mini-fab color="accent" style="position: absolute; right: 70px;"
+                    (click)="editNote(item)">
+                    <mat-icon class="material-icons" style="font-size:30px; position:fixed; top:5px; left:5px;">
+                        edit_note</mat-icon>
+                </button>
+                <mat-card-title>
+                    <h1>{{item.title}}</h1>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <h4>{{item.category}}</h4>
+                </mat-card-subtitle>
+                <mat-card-content>
+                    <h3>{{item.description}}</h3>
+                </mat-card-content>
+                <mat-card-footer style="margin-left:5px;">
+                    <h4> Date: {{item.createdDate | date:'medium'}}</h4>
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+<div>
+    <button mat-fab color="primary" style="font-size:55px; position:fixed; bottom:50px; right:30px;"
+        (click)="createNotes();">
+        <mat-icon class="material-icons" style="font-size:45px; position:fixed; bottom:28px; right:26px;">add_circle
+        </mat-icon>
+    </button>
+</div>
